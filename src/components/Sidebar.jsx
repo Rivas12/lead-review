@@ -1,11 +1,25 @@
 import React from 'react';
 
-export default function Sidebar({ setOpcao }) {
+const opcoes = [
+  { nome: 'Dashboard', icon: '📊' },
+  { nome: 'Leads', icon: '👥' },
+  { nome: 'Configurações', icon: '⚙️' },
+];
+
+export default function Sidebar({ opcaoAtiva, setOpcao }) {
   return (
     <div className="sidebar">
-      <button onClick={() => setOpcao('Dashboard')}>Dashboard</button>
-      <button onClick={() => setOpcao('Leads')}>Leads</button>
-      <button onClick={() => setOpcao('Configurações')}>Configurações</button>
+      <div className="sidebar-title">Lead Review</div>
+      {opcoes.map(({ nome, icon }) => (
+        <button
+          key={nome}
+          className={opcaoAtiva === nome ? 'active' : ''}
+          onClick={() => setOpcao(nome)}
+        >
+          <span className="icon">{icon}</span>
+          {nome}
+        </button>
+      ))}
     </div>
   );
 }

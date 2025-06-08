@@ -1,45 +1,165 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* Container geral flex */
 .app-container {
   display: flex;
   height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #eceff4;
 }
 
 /* Sidebar vertical */
 .sidebar {
-  width: 200px;
-  background-color: #222;
-  color: white;
+  width: 240px;
+  background: linear-gradient(180deg, #232526 0%, #414345 100%);
+  color: #fff;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 32px 0 24px 0;
+  box-shadow: 4px 0 16px #0002;
+  align-items: stretch;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  min-width: 200px;
+  transition: width 0.2s;
+}
+
+/* Título da sidebar */
+.sidebar-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #ffd700;
+  text-shadow: 0 2px 8px #0005;
 }
 
 /* Botões sidebar */
 .sidebar button {
   background: none;
   border: none;
-  color: white;
-  padding: 12px 20px;
-  margin-bottom: 10px;
+  color: inherit;
+  padding: 16px 36px;
+  margin: 6px 10px 6px 0;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.15em;
   text-align: left;
-  transition: background-color 0.3s;
+  border-radius: 0 24px 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  position: relative;
+  font-weight: 500;
 }
 
+.sidebar button.active {
+  background: linear-gradient(90deg, #ffd70033 0%, #fff2 100%);
+  color: #ffd700;
+  box-shadow: 2px 2px 12px #ffd70022;
+}
 .sidebar button:hover {
-  background-color: #444;
+  color: #ffd90086;
+}
+
+.sidebar button.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 6px;
+  border-radius: 0 6px 6px 0;
+  background: #ffd700;
+  box-shadow: 1px 0 8px #ffd70055;
+}
+
+/* Ícone dos botões */
+.icon {
+  font-size: 1.4em;
+  filter: drop-shadow(0 1px 2px #0005);
+}
+
+/* Área do conteúdo principal */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fa;
+  border-radius: 24px 0 0 24px;
+  box-shadow: 0 4px 24px #0001;
+  margin: 16px 16px 16px 0;
+  overflow: hidden;
+}
+
+/* Cabeçalho da área do conteúdo */
+.header {
+  background: #fff;
+  padding: 24px 40px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 12px #0001;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #232526;
+  letter-spacing: 1px;
 }
 
 /* Área do conteúdo */
 .conteudo {
   flex: 1;
-  padding: 30px;
-  background-color: #f5f5f5;
+  padding: 40px 48px;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 0;
 }
 
 .conteudo h1 {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  color: #232526;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 60px;
+    min-width: 60px;
+    padding: 16px 0;
+  }
+  .sidebar-title {
+    font-size: 1.1em;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+  .sidebar button {
+    padding: 12px 10px;
+    font-size: 1em;
+    gap: 0;
+    justify-content: center;
+  }
+  .sidebar button span:not(.icon) {
+    display: none;
+  }
+  .main-content {
+    margin: 8px 8px 8px 0;
+    border-radius: 16px 0 0 16px;
+  }
+  .header {
+    padding: 16px 20px;
+    font-size: 1.1em;
+  }
+  .conteudo {
+    padding: 20px 12px;
+  }
 }
