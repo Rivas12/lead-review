@@ -1,0 +1,45 @@
+/* Container geral flex */
+.app-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar vertical */
+.sidebar {
+  width: 200px;
+  background-color: #222;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Botões sidebar */
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+  transition: background-color 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #444;
+}
+
+/* Área do conteúdo */
+.conteudo {
+  flex: 1;
+  padding: 30px;
+  background-color: #f5f5f5;
+}
+
+.conteudo h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
